@@ -2,7 +2,7 @@ var date = new Date();
 			 var hour = date.getHours();
              var min = date.getMinutes();
 
-             console.log("hour: "+hour+" minute: "+min);
+             //console.log("hour: "+hour+" minute: "+min);
 
              if(hour<5){
                    $(function() {
@@ -33,9 +33,9 @@ var date = new Date();
 $('.submit').click(function(){
 
 	var city = $('.city_names').val();
-	console.log(city);
+	//console.log(city);
 	$.ajax({
-        url: "http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=13ee6543faae4f2022c03420fd21df38",
+        url: "http://api.openweathermap.org/data/2.5/forecast/?"+q+"&APPID=13ee6543faae4f2022c03420fd21df38",
 	    jsonp: "callback",
 	    dataType: "jsonp",
 	    data: {
