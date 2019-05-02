@@ -35,7 +35,7 @@ $('.submit').click(function(){
 	var city = $('.city_names').val();
 	//console.log(city);
 	$.ajax({
-        url: "http://api.openweathermap.org/data/2.5/forecast/?"+q+"&APPID=13ee6543faae4f2022c03420fd21df38",
+        url: "http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=13ee6543faae4f2022c03420fd21df38",
 	    jsonp: "callback",
 	    dataType: "jsonp",
 	    data: {
@@ -66,7 +66,7 @@ $(document).ready(function(){
 	$( ".city_names" ).autocomplete({
 		source: function( request, response ) {
 			$.ajax({
-                url: "http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=13ee6543faae4f2022c03420fd21df38",
+                url: "http://api.openweathermap.org/data/2.5/forecast/q?id=524901&APPID=13ee6543faae4f2022c03420fd21df38",
 				dataType: "jsonp",
 				data: {
 					q: request.term,
