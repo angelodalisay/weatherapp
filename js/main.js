@@ -62,54 +62,7 @@ $('.submit').click(function(){
 	});
 });
 
-$(document).ready(function(){
-	$( ".city_names" ).autocomplete({
-		source: function( request, response ) {
-			$.ajax({
-                url: "http://api.openweathermap.org/data/2.5/forecast/?q="+request.term+"&APPID=13ee6543faae4f2022c03420fd21df38",
-				dataType: "jsonp",
-				data: {
-					q: request.term,
-					mode: "json"
-				},
-				success: function( data ) {
-					// Fix for IE 8 as forEach function not supported yet below IE 9
-					if (typeof Array.prototype.forEach != 'function') {
-					    Array.prototype.forEach = function(callback){
-					      for (var i = 0; i < this.length; i++){
-					        callback.apply(this, [this[i], i, this]);
-					      }
-					    };
-					}
 
-					var parsed = data.list;
-					var newArray = new Array(parsed.length);
-					var i = 0;
-					  parsed.forEach(function (entry) {
-	                    var newObject = {
-	                        label: entry.name+" "+entry.sys.country
-	                    };
-	                    newArray[i] = newObject;
-	                    i++;
-	                });
-
-					  response(newArray);
-				},
-				error: function (message) {
-	                response([]);
-	            }
-			});
-		},
-		minLength: 2,
-		open: function() {
-			$( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
-		},
-		close: function() {
-			$( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
-		}
-	});
-
-});
 
 
 
